@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Wikia Homeaork" verbose="1" >
+    <test name="All tests">
+        <classes>
+            <class name="com.wiki.homework.tests.LoginTest" />
+            <class name="com.wiki.homework.tests.AddVideoTest" />
+        </classes>
+    </test>
+</suite>
