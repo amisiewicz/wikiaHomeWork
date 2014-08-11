@@ -3,9 +3,9 @@ package com.wiki.homework.tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.annotations.*;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     private final String MAC_DRIVER = "/resources/chrmoedrivers/chromedriver_mac";
@@ -23,6 +23,13 @@ public class TestBase {
             setupChromeDriverPath();
             driver = new ChromeDriver();
         }
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @AfterClass
+    public void afterTest() {
+        driver.quit();
     }
 
     public void setupChromeDriverPath() {
@@ -35,10 +42,5 @@ public class TestBase {
             cDriver = new File(TestBase.class.getResource(WINDOWS_DRIVER).getFile());
         }
         System.setProperty("webdriver.chrome.driver", cDriver.getAbsolutePath());
-    }
-
-    @AfterClass
-    public void afterTest() {
-        driver.quit();
     }
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,13 +16,13 @@ public class HomePage {
     @FindBy(id = "UserLoginDropdown")
     private WebElement loginDropdown;
 
-    @FindBy(name ="username")
+    @FindBy(name = "username")
     private WebElement userName;
 
-    @FindBy(how = How.NAME, using = "password")
+    @FindBy(name = "password")
     private WebElement password;
 
-    @FindBy(className  ="login-button")
+    @FindBy(className = "login-button")
     private WebElement loginButton;
 
     @FindBy(id = "AccountNavigation")
@@ -32,7 +31,7 @@ public class HomePage {
     @FindBy(className = "contribute")
     private WebElement contributeButton;
 
-    @FindBy(partialLinkText =  "Add a Video")
+    @FindBy(partialLinkText = "Add a Video")
     private WebElement addVideo;
 
     private final WebDriver driver;
